@@ -1,7 +1,7 @@
 "参考资料： https://linux.cn/article-5880-1.html
 "> mkdir -p ~/.vim/bundle 
 "> git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-"Windows 版本参考： http://blog.csdn.net/zhuxiaoyang2000/article/details/8636472
+"> Windows 版本参考： http://blog.csdn.net/zhuxiaoyang2000/article/details/8636472
 
 
 "关闭 VI 的一致性模式，避免以前版本的一些 Bug 和局限
