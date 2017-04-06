@@ -1,7 +1,6 @@
-"参考资料： https://linux.cn/article-5880-1.html
-"> mkdir -p ~/.vim/bundle 
-"> git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-"> Windows 版本参考： http://blog.csdn.net/zhuxiaoyang2000/article/details/8636472
+"https://linux.cn/article-5880-1.html
+"mkdir -p ~/.vim/bundle 
+"git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 
 "关闭 VI 的一致性模式，避免以前版本的一些 Bug 和局限
@@ -55,10 +54,9 @@ filetype indent on
 filetype plugin on
 "启用智能补全
 filetype plugin indent on
-"set runtimepath+=$GOROOT/misc/vim
 
 
-"set filetype=python
+set filetype=python
 au BufNewFile,BufRead *.py,*.pyw setf python
 autocmd FileType python setlocal et sta sw=4 sts=4
 
@@ -87,6 +85,42 @@ Plugin 'pydiction'
 "pydiction 设置
 let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 let g:pydiction_menu_height = 20 "default is 15
+
+" Install Vim-go  
+Plugin 'fatih/vim-go'
+
+"Plugin 'nsf/gocode', {'rtp': 'vim/'}
+Plugin 'Blackrush/vim-gocode'
+Plugin 'dgryski/vim-godef'
+Plugin 'majutsushi/tagbar'
+"nmap  :TagbarToggle
+let g:tagbar_type_go = {
+  \ 'ctagstype' : 'go',
+  \ 'kinds'  : [
+    \ 'p:package',
+    \ 'i:imports:1',
+    \ 'c:constants',
+    \ 'v:variables',
+    \ 't:types',
+    \ 'n:interfaces',
+    \ 'w:fields',
+    \ 'e:embedded',
+    \ 'm:methods',
+    \ 'r:constructor',
+    \ 'f:functions'
+  \ ],
+  \ 'sro' : '.',
+  \ 'kind2scope' : {
+    \ 't' : 'ctype',
+    \ 'n' : 'ntype'
+  \ },
+  \ 'scope2kind' : {
+    \ 'ctype' : 't',
+    \ 'ntype' : 'n'
+  \ },
+  \ 'ctagsbin'  : 'gotags',
+  \ 'ctagsargs' : '-sort -silent'
+\ }
 
 "miniBufExplorer
 Plugin 'minibufexplorerpp'
@@ -124,7 +158,7 @@ call vundle#end()
 "guifont
 if has ("gui_running")
 	colo desert
-	set guifont=Monaco:h13
+	set guifont=Monaco:h14
 	set go=
 else
 	colo desert
@@ -200,4 +234,3 @@ endfunction
 inoremap ) <ESC>:call RemoveNextDoubleChar(')')<CR>a
 inoremap ] <ESC>:call RemoveNextDoubleChar(']')<CR>a
 inoremap } <ESC>:call RemoveNextDoubleChar('}')<CR>a
-
